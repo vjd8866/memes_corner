@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_memes_corner,access_memes_corner,model_memes_corner,,1,1,1,1
+access_memes_categ,access_memes_categ,model_memes_categ,,1,1,1,1
+

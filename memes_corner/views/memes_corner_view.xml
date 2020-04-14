@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <menuitem name="Memes Corner" id="main_memes_corner" sequence="25"/>
+    <menuitem name="Memes Corner" id="sub_memes_corner" parent="memes_corner.main_memes_corner" sequence="1"/>
+
+    <record id="memes_corner_form_view" model="ir.ui.view">
+        <field name="name">memes.corner.form</field>
+        <field name="model">memes.corner</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <form string="Memes">
+                <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,review,done" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="image" widget="image"/>
+                        <field name="categ_id"/>
+                        <field name="likes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="memes_corner_tree_view" model="ir.ui.view">
+        <field name="name">memes.corner.tree</field>
+        <field name="model">memes.corner</field>
+        <field name="arch" type="xml">
+            <tree string="Memes">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="action_memes_corner" model="ir.actions.act_window">
+        <field name="name">Memes Corner</field>
+        <field name="res_model">memes.corner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Memes Corner" id="menu_memes_corner"
+              action="action_memes_corner" parent="memes_corner.sub_memes_corner"/>
+
+
+    <record id="memes_categ_tree_view" model="ir.ui.view">
+        <field name="name">memes.categ.tree</field>
+        <field name="model">memes.categ</field>
+        <field name="arch" type="xml">
+            <tree string="Memes">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="action_memes_categ" model="ir.actions.act_window">
+        <field name="name">Memes Categ</field>
+        <field name="res_model">memes.categ</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Memes Type" id="menu_memes_categ"
+              action="action_memes_categ" parent="memes_corner.sub_memes_corner"/>
+
+
+
+</odoo>
